@@ -49,6 +49,8 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -59,7 +61,8 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  min-width: 0;
+  width: 100%;
+  max-width: 100vw;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -522,12 +525,20 @@ ul { list-style: none; }
 /* ── HERO ── */
 .hero {
   position: relative;
-  z-index: 0;          /* stacking context abaixo do header (z-index: 50) */
-  isolation: isolate;  /* contém z-indexes filhos dentro do hero */
+  z-index: 0;
+  isolation: isolate;
   min-height: 92svh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   background: var(--brand-dark);
+  overflow: hidden;
+}
+
+/* Força o container dentro do hero a ocupar 100% da largura */
+.hero > .container {
+  width: 100%;
+  min-width: 0;
 }
 
 @media (min-width: 768px) {
@@ -572,7 +583,9 @@ ul { list-style: none; }
 
 .hero-content-inner {
   max-width: 860px;
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .hero-badge {
@@ -603,19 +616,24 @@ ul { list-style: none; }
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 6vw, 3.75rem);
+  font-size: clamp(1.75rem, 5.5vw, 3.75rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .hero-subtitle {
-  font-size: clamp(0.9375rem, 2vw, 1.0625rem);
+  font-size: clamp(0.875rem, 2vw, 1.0625rem);
   color: var(--foreground-muted);
   max-width: 520px;
+  width: 100%;
   margin: 0 auto 2.25rem;
   line-height: 1.7;
+  overflow-wrap: break-word;
 }
 
 .hero-ctas {
@@ -656,8 +674,13 @@ ul { list-style: none; }
 
 .hero-metrics > div {
   flex: 1;
-  padding: 0 1.5rem;
+  padding: 0 0.625rem;
   text-align: center;
+  min-width: 0;
+}
+
+@media (min-width: 480px) {
+  .hero-metrics > div { padding: 0 1.5rem; }
 }
 
 .hero-metrics > div + div {
@@ -665,12 +688,13 @@ ul { list-style: none; }
 }
 
 .metric-value {
-  font-size: 1.875rem;
+  font-size: clamp(1.25rem, 5.5vw, 1.875rem);
   font-weight: 800;
   color: var(--foreground);
   line-height: 1;
   display: block;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .metric-label {
@@ -938,6 +962,8 @@ ul { list-style: none; }
 /* ── MARQUEE / DEPOIMENTOS ── */
 .marquee-wrapper {
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
   position: relative;
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
