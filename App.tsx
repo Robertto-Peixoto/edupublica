@@ -1,39 +1,37 @@
 import React from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Privacy from './pages/Privacy';
-import Terms from './pages/Terms';
-
-// Scroll to top on route change
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
+import './index.css';
+import Header from './src/components/Header';
+import Hero from './src/components/Hero';
+import Problema from './src/components/Problema';
+import Solucao from './src/components/Solucao';
+import Modulos from './src/components/Modulos';
+import Metodologia from './src/components/Metodologia';
+import ParaQuem from './src/components/ParaQuem';
+import Depoimentos from './src/components/Depoimentos';
+import Precos from './src/components/Precos';
+import FAQ from './src/components/FAQ';
+import Footer from './src/components/Footer';
 
 const App: React.FC = () => {
   return (
-    <HashRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="servicos" element={<Services />} />
-          <Route path="sobre" element={<About />} />
-          <Route path="contato" element={<Contact />} />
-          <Route path="privacidade" element={<Privacy />} />
-          <Route path="termos" element={<Terms />} />
-        </Route>
-      </Routes>
-    </HashRouter>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Problema />
+        <Solucao />
+        <Modulos />
+        <Metodologia />
+        <ParaQuem />
+        <Depoimentos />
+        <Precos />
+        <FAQ />
+      </main>
+      <Footer />
+      <a href="#precos" className="btn-cta-float" aria-label="Solicitar proposta">
+        Solicitar Proposta
+      </a>
+    </>
   );
 };
 

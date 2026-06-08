@@ -1,0 +1,54 @@
+import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
+const Header: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const close = () => setIsOpen(false);
+
+  return (
+    <header className="header">
+      <div className="container header-inner">
+        <a href="#" className="logo">
+          EduPublica <strong>Formação</strong>
+        </a>
+
+        <nav className="nav-desktop" aria-label="Navegação principal">
+          <a href="#sobre" className="nav-link">Sobre</a>
+          <a href="#modulos" className="nav-link">Módulos</a>
+          <a href="#metodologia" className="nav-link">Metodologia</a>
+          <a href="#para-quem" className="nav-link">Para Quem</a>
+          <a href="#precos" className="nav-link">Preços</a>
+        </nav>
+
+        <div className="nav-actions">
+          <a href="#precos" className="btn-secondary">Solicitar Proposta</a>
+          <button
+            className="hamburger"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
+            aria-expanded={isOpen}
+          >
+            {isOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+          </button>
+        </div>
+      </div>
+
+      {isOpen && (
+        <div className="mobile-menu" role="navigation" aria-label="Menu mobile">
+          <nav>
+            <a href="#sobre" className="mobile-nav-link" onClick={close}>Sobre</a>
+            <a href="#modulos" className="mobile-nav-link" onClick={close}>Módulos</a>
+            <a href="#metodologia" className="mobile-nav-link" onClick={close}>Metodologia</a>
+            <a href="#para-quem" className="mobile-nav-link" onClick={close}>Para Quem</a>
+            <a href="#precos" className="mobile-nav-link" onClick={close}>Preços</a>
+            <a href="#precos" className="btn-primary" onClick={close}>
+              Solicitar Proposta
+            </a>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Header;
