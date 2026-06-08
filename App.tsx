@@ -8,12 +8,20 @@ import Modulos from './src/components/Modulos';
 import Metodologia from './src/components/Metodologia';
 import ParaQuem from './src/components/ParaQuem';
 import Depoimentos from './src/components/Depoimentos';
-import Precos from './src/components/Precos';
 import FAQ from './src/components/FAQ';
 import Footer from './src/components/Footer';
 
+const WA = 'https://wa.me/5584981289184';
+
 const App: React.FC = () => {
   useEffect(() => {
+    const items = Array.from(document.querySelectorAll('.animate-item'));
+
+    if (!('IntersectionObserver' in window)) {
+      items.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -23,30 +31,34 @@ const App: React.FC = () => {
           }
         });
       },
-      { threshold: 0.08, rootMargin: '0px 0px -48px 0px' }
+      { threshold: 0.05 }
     );
 
-    document.querySelectorAll('.animate-item').forEach((el) => observer.observe(el));
-
+    items.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
   return (
     <>
-      <Header />
+      <Header wa={WA} />
       <main>
-        <Hero />
+        <Hero wa={WA} />
         <Problema />
         <Solucao />
         <Modulos />
         <Metodologia />
         <ParaQuem />
         <Depoimentos />
-        <Precos />
         <FAQ />
       </main>
       <Footer />
-      <a href="#precos" className="btn-cta-float" aria-label="Solicitar proposta">
+      <a
+        href={WA}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="btn-cta-float"
+        aria-label="Solicitar proposta via WhatsApp"
+      >
         Solicitar Proposta
       </a>
     </>

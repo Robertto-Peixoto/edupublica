@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Header: React.FC = () => {
+interface Props {
+  wa: string;
+}
+
+const Header: React.FC<Props> = ({ wa }) => {
   const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
 
@@ -17,11 +21,18 @@ const Header: React.FC = () => {
           <a href="#modulos" className="nav-link">Módulos</a>
           <a href="#metodologia" className="nav-link">Metodologia</a>
           <a href="#para-quem" className="nav-link">Para Quem</a>
-          <a href="#precos" className="nav-link">Preços</a>
+          <a href="#faq" className="nav-link">FAQ</a>
         </nav>
 
         <div className="nav-actions">
-          <a href="#precos" className="btn-secondary">Solicitar Proposta</a>
+          <a
+            href={wa}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary"
+          >
+            Solicitar Proposta
+          </a>
           <button
             className="hamburger"
             onClick={() => setIsOpen(!isOpen)}
@@ -40,8 +51,14 @@ const Header: React.FC = () => {
             <a href="#modulos" className="mobile-nav-link" onClick={close}>Módulos</a>
             <a href="#metodologia" className="mobile-nav-link" onClick={close}>Metodologia</a>
             <a href="#para-quem" className="mobile-nav-link" onClick={close}>Para Quem</a>
-            <a href="#precos" className="mobile-nav-link" onClick={close}>Preços</a>
-            <a href="#precos" className="btn-primary" onClick={close}>
+            <a href="#faq" className="mobile-nav-link" onClick={close}>FAQ</a>
+            <a
+              href={wa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary"
+              onClick={close}
+            >
               Solicitar Proposta
             </a>
           </nav>

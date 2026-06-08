@@ -1,7 +1,11 @@
 import React from 'react';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, MessageCircle } from 'lucide-react';
 
-const Hero: React.FC = () => {
+interface Props {
+  wa: string;
+}
+
+const Hero: React.FC<Props> = ({ wa }) => {
   return (
     <section className="hero">
       <div className="hero-grid" aria-hidden="true" />
@@ -34,9 +38,14 @@ const Hero: React.FC = () => {
                 Ver Módulos de Formação
                 <ArrowRight size={16} aria-hidden="true" />
               </a>
-              <a href="#precos" className="btn-secondary">
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-secondary"
+              >
+                <MessageCircle size={16} aria-hidden="true" />
                 Solicitar Proposta
-                <ChevronRight size={16} aria-hidden="true" />
               </a>
             </div>
 
