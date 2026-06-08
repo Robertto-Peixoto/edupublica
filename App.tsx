@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './index.css';
+import { WA_URL } from './src/config';
 import Header from './src/components/Header';
 import Hero from './src/components/Hero';
 import Problema from './src/components/Problema';
@@ -10,8 +11,6 @@ import ParaQuem from './src/components/ParaQuem';
 import Depoimentos from './src/components/Depoimentos';
 import FAQ from './src/components/FAQ';
 import Footer from './src/components/Footer';
-
-const WA = 'https://wa.me/5584981289184';
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -40,9 +39,9 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Header wa={WA} />
+      <Header wa={WA_URL} />
       <main>
-        <Hero wa={WA} />
+        <Hero wa={WA_URL} />
         <Problema />
         <Solucao />
         <Modulos />
@@ -53,7 +52,7 @@ const App: React.FC = () => {
       </main>
       <Footer />
       <a
-        href={WA}
+        href={WA_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="btn-cta-float"
