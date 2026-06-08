@@ -37,12 +37,12 @@ const FAQ: React.FC = () => {
     <section id="faq" className="section">
       <div className="container">
         <div style={{ maxWidth: '720px', marginBottom: '2.5rem' }}>
-          <div className="tri-bar" aria-hidden="true" />
-          <p className="section-label">Dúvidas Frequentes</p>
-          <h2 className="section-title">Perguntas que toda secretaria faz</h2>
+          <p className="section-label animate-item">Dúvidas Frequentes</p>
+          <h2 className="section-title animate-item delay-1">Perguntas que toda secretaria faz</h2>
+          <div className="tri-bar-under animate-item delay-1" aria-hidden="true" />
         </div>
 
-        <div className="faq-list" style={{ maxWidth: '720px' }} role="list">
+        <div className="faq-list animate-item delay-2" style={{ maxWidth: '720px' }} role="list">
           {faqs.map((faq, i) => (
             <div
               key={i}

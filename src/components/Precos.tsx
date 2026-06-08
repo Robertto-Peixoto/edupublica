@@ -73,7 +73,7 @@ const PlanoContent: React.FC<{ plano: Plano }> = ({ plano }) => (
     <h3 className="plan-name">{plano.nome}</h3>
     <p className="plan-price">{plano.preco}</p>
     <p className="plan-period">{plano.periodo}</p>
-    <ul className="plan-features">
+    <ul className="plan-features" style={{ flex: 1 }}>
       {plano.features.map((f, i) => (
         <li key={i} className="plan-feature">
           <Check size={14} className="plan-feature-icon" aria-hidden="true" />
@@ -81,10 +81,7 @@ const PlanoContent: React.FC<{ plano: Plano }> = ({ plano }) => (
         </li>
       ))}
     </ul>
-    <a
-      href="mailto:contato@i9ai.org"
-      className={`plan-cta cta-${plano.ctaVariant}`}
-    >
+    <a href="mailto:contato@i9ai.org" className={`plan-cta cta-${plano.ctaVariant}`}>
       {plano.cta}
     </a>
   </>
@@ -92,13 +89,15 @@ const PlanoContent: React.FC<{ plano: Plano }> = ({ plano }) => (
 
 const Precos: React.FC = () => {
   return (
-    <section id="precos" className="section" style={{ background: 'var(--card)' }}>
+    <section id="precos" className="section">
       <div className="container">
         <div style={{ marginBottom: '3rem' }}>
-          <div className="tri-bar" aria-hidden="true" />
-          <p className="section-label">Planos</p>
-          <h2 className="section-title">Formação para redes de todos os portes</h2>
-          <p className="section-subtitle">
+          <p className="section-label animate-item">Planos</p>
+          <h2 className="section-title animate-item delay-1">
+            Formação para redes de todos os portes
+          </h2>
+          <div className="tri-bar-under animate-item delay-1" aria-hidden="true" />
+          <p className="section-subtitle animate-item delay-2" style={{ marginTop: '1.5rem' }}>
             Valores adaptados ao tamanho da rede e número de participantes.
             Emissão de nota fiscal pela i9AI Soluções em IA (CNPJ 40.641.253/0001-69).
             Dispensa de licitação até R$ 57.200 (Lei 14.133/2021, Art. 75, II).
@@ -106,11 +105,11 @@ const Precos: React.FC = () => {
         </div>
 
         <div className="precos-grid">
-          {planos.map((plano) =>
+          {planos.map((plano, i) =>
             plano.destaque ? (
               <div
                 key={plano.nome}
-                className="animated-gradient-border"
+                className={`animated-gradient-border animate-item delay-${i + 1}`}
                 style={{ display: 'flex', flexDirection: 'column' }}
               >
                 <div className="card-inner">
@@ -120,7 +119,7 @@ const Precos: React.FC = () => {
             ) : (
               <div
                 key={plano.nome}
-                className="surface-card"
+                className={`surface-card animate-item delay-${i + 1}`}
                 style={{ display: 'flex', flexDirection: 'column' }}
               >
                 <PlanoContent plano={plano} />

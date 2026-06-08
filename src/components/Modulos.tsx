@@ -51,15 +51,15 @@ const modulos = [
 
 const Modulos: React.FC = () => {
   return (
-    <section id="modulos" className="section" style={{ background: 'var(--card)' }}>
+    <section id="modulos" className="section">
       <div className="container">
         <div style={{ marginBottom: '3rem' }}>
-          <div className="tri-bar" aria-hidden="true" />
-          <p className="section-label">Programa</p>
-          <h2 className="section-title">
+          <p className="section-label animate-item">Programa</p>
+          <h2 className="section-title animate-item delay-1">
             5 módulos que cobrem o que sua rede realmente precisa
           </h2>
-          <p className="section-subtitle">
+          <div className="tri-bar-under animate-item delay-1" aria-hidden="true" />
+          <p className="section-subtitle animate-item delay-2" style={{ marginTop: '1.5rem' }}>
             Cada módulo pode ser contratado separadamente ou como programa completo.
             Carga horária flexível: presencial, remoto ou híbrido.
           </p>
@@ -67,7 +67,7 @@ const Modulos: React.FC = () => {
 
         <div className="grid-3">
           {modulos.map(({ Icon, color, num, carga, title, desc, para }, i) => (
-            <article key={i} className="modulo-card">
+            <article key={i} className={`modulo-card animate-item delay-${(i % 3) + 1}`}>
               <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '0.75rem' }}>
                 <div className={`module-icon ${color}`} style={{ marginBottom: 0 }}>
                   <Icon size={20} aria-hidden="true" />

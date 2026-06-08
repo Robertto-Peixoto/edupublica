@@ -26,13 +26,13 @@ const Solucao: React.FC = () => {
   return (
     <section className="section">
       <div className="container">
-        <div className="section-header-center">
-          <div className="tri-bar" aria-hidden="true" />
-          <p className="section-label">Nossa Abordagem</p>
-          <h2 className="section-title">
+        <div className="section-center">
+          <p className="section-label animate-item">Nossa Abordagem</p>
+          <h2 className="section-title animate-item delay-1">
             Formação que muda práticas, não apenas certifica
           </h2>
-          <p className="section-subtitle">
+          <div className="tri-bar-under animate-item delay-1" aria-hidden="true" />
+          <p className="section-subtitle animate-item delay-2" style={{ marginTop: '1.5rem' }}>
             Nossa metodologia parte dos desafios reais das escolas e das redes,
             não de conteúdos abstratos. Combinamos base normativa, estudos
             sociais da deficiência e prática pedagógica aplicada.
@@ -41,7 +41,7 @@ const Solucao: React.FC = () => {
 
         <div className="grid-3">
           {pilares.map(({ Icon, color, title, text }, i) => (
-            <div key={i} className="animated-gradient-border">
+            <div key={i} className={`animated-gradient-border animate-item delay-${i + 1}`}>
               <div className="card-inner">
                 <div className={`module-icon ${color}`}>
                   <Icon size={20} aria-hidden="true" />
@@ -52,6 +52,7 @@ const Solucao: React.FC = () => {
                   fontWeight: 600,
                   color: 'var(--foreground)',
                   marginBottom: '0.625rem',
+                  lineHeight: 1.3,
                 }}>
                   {title}
                 </h3>

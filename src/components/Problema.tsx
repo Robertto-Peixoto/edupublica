@@ -26,16 +26,16 @@ const dores = [
 
 const Problema: React.FC = () => {
   return (
-    <section id="sobre" className="section" style={{ background: 'var(--card)' }}>
+    <section id="sobre" className="section">
       <div className="container">
         <div className="problema-layout">
           <div>
-            <div className="tri-bar" aria-hidden="true" />
-            <p className="section-label">O Desafio</p>
-            <h2 className="section-title">
+            <p className="section-label animate-item">O Desafio</p>
+            <h2 className="section-title animate-item delay-1">
               A inclusão que existe no papel ainda não chegou à sala de aula
             </h2>
-            <p className="section-subtitle">
+            <div className="tri-bar-under animate-item delay-1" aria-hidden="true" />
+            <p className="section-subtitle animate-item delay-2" style={{ marginTop: '1.5rem' }}>
               Municípios e redes de ensino enfrentam desafios estruturais para
               implementar a Educação Especial Inclusiva de forma efetiva: professores
               sem formação adequada, AEE desarticulado da sala comum, barreiras que
@@ -45,7 +45,7 @@ const Problema: React.FC = () => {
 
           <div className="dores-grid">
             {dores.map(({ Icon, title, text }, i) => (
-              <div key={i} className="dor-card">
+              <div key={i} className={`dor-card animate-item delay-${i + 1}`}>
                 <div className="dor-icon">
                   <Icon size={18} aria-hidden="true" />
                 </div>

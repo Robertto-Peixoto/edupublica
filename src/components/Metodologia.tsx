@@ -40,11 +40,11 @@ const Metodologia: React.FC = () => {
   return (
     <section id="metodologia" className="section">
       <div className="container">
-        <div className="section-header-center">
-          <div className="tri-bar" aria-hidden="true" />
-          <p className="section-label">Metodologia</p>
-          <h2 className="section-title">Como a formação é estruturada</h2>
-          <p className="section-subtitle">
+        <div className="section-center">
+          <p className="section-label animate-item">Metodologia</p>
+          <h2 className="section-title animate-item delay-1">Como a formação é estruturada</h2>
+          <div className="tri-bar-under animate-item delay-1" aria-hidden="true" />
+          <p className="section-subtitle animate-item delay-2" style={{ marginTop: '1.5rem' }}>
             Seguimos o ciclo do Caderno de Gestão MEC/SECADI (2026): diagnóstico,
             ação e continuidade. Nada de formação pontual desconectada da prática.
           </p>
@@ -52,7 +52,7 @@ const Metodologia: React.FC = () => {
 
         <div className="timeline" role="list">
           {etapas.map(({ fase, titulo, itens }, i) => (
-            <div key={i} className="timeline-step" role="listitem">
+            <div key={i} className={`timeline-step animate-item delay-${i + 1}`} role="listitem">
               <div className="timeline-number" aria-hidden="true">
                 {String(i + 1).padStart(2, '0')}
               </div>

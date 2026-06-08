@@ -46,19 +46,19 @@ const personas = [
 
 const ParaQuem: React.FC = () => {
   return (
-    <section id="para-quem" className="section" style={{ background: 'var(--card)' }}>
+    <section id="para-quem" className="section">
       <div className="container">
         <div style={{ marginBottom: '3rem' }}>
-          <div className="tri-bar" aria-hidden="true" />
-          <p className="section-label">Público-Alvo</p>
-          <h2 className="section-title">
+          <p className="section-label animate-item">Público-Alvo</p>
+          <h2 className="section-title animate-item delay-1">
             Feito para quem implementa a política na prática
           </h2>
+          <div className="tri-bar-under animate-item delay-1" aria-hidden="true" />
         </div>
 
         <div className="grid-2">
           {personas.map(({ Icon, color, titulo, bullets }, i) => (
-            <div key={i} className="surface-card-hover">
+            <div key={i} className={`surface-card-hover animate-item delay-${(i % 2) + 1}`}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
                 <div className={`module-icon ${color}`} style={{ marginBottom: 0 }}>
                   <Icon size={20} aria-hidden="true" />
@@ -70,6 +70,7 @@ const ParaQuem: React.FC = () => {
                     fontWeight: 600,
                     color: 'var(--foreground)',
                     marginBottom: '0.375rem',
+                    lineHeight: 1.3,
                   }}>
                     {titulo}
                   </h3>
